@@ -1,0 +1,39 @@
+.RenderField {
+	margin-bottom: 1rem;
+
+	&__Label {
+		display: inline-block;
+		margin-bottom: .5rem;
+		color: $white-color;
+		background-color: $primary-color;
+		border-radius: .25rem;
+		padding: .375rem .75rem;
+	}
+
+	&__Input {
+		width: 100%;
+		display: block;
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		line-height: 1rem;
+		background-color: $white-color;
+		border-radius: .25rem;
+		border: 1px solid $field-secondary-color;
+	}
+
+	&__Error {
+		display: block;
+		width: 100%;
+		font-size: 90%;
+		color: $danger-color;
+		margin-top: .5rem;
+
+		&::before {
+			display: inline-block;
+			margin-right: 5px;
+			border: 1px solid $danger-color;
+			border-radius: .8rem;
+			content: "\00a0x\00a0";
+		}
+	}
+}

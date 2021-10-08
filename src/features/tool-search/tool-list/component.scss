@@ -1,0 +1,19 @@
+.ToolList {
+	&__Button-Wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		margin: 0 5%;
+	}
+
+	&__Add {
+		margin-top: 0;
+		margin-right: 7%;
+
+		@include respond-to-few((mobile, phone)) {
+			margin-right: 0;
+			text-align: center;
+			width: 100%;
+		}
+	}	
+}

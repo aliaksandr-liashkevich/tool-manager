@@ -11,7 +11,8 @@ const webpackConfig = {
 	},
 	output: {
 		path: outputPath,
-		filename: '[name].js'
+		filename: '[name].js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -41,25 +42,31 @@ const webpackConfig = {
 					'style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
 					'postcss-loader',
-					'sass-loader'
+					{
+						loader: 'sass-loader',
+						options: {
+							data: '@import "index.scss";',
+							includePaths: [__dirname, './public/styles']
+						}
+					}
 				]
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
 				exclude: /node_modules/,
-				loader: 'file-loader?name=assets/fonts/[name].[ext]'
+				loader: 'file-loader?name=fonts/[name].[ext]'
 			},
 			{
 				test: /\.(jpg|png|ico|gif)$/,
 				exclude: /node_modules/,
-				loader: 'file-loader?name=assets/images/[name].[ext]'
+				loader: 'file-loader?name=images/[name].[ext]'
 			}
 		]
 	}, 
 	plugins: [ 
 		new HtmlWebpackPlugin({
-			favicon: './src/assets/images/react.png',
-			template: path.join(__dirname, './src/assets/index.html'),
+			favicon: './public/images/react.png',
+			template: path.join(__dirname, './public/index.html'),
 			filename: 'index.html',
 			path: outputPath
 		}),
@@ -68,7 +75,7 @@ const webpackConfig = {
 	],
 	devServer: {
 		contentBase: outputPath,
-		port: 8888,
+		port: 8080,
 		historyApiFallback: true,
 		inline: true,
 		hot: true,

@@ -1,0 +1,10 @@
+.Title {
+	font-size: 52px;
+	font-family: $font-main-bold;
+	text-align: center;
+	margin-bottom: 1.5rem;
+
+	@include respond-to-few((mobile, phone)) {
+		word-spacing: $sm-min; 
+	}
+}

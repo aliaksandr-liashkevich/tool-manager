@@ -1,0 +1,42 @@
+.PageItem {
+	&__Disabled {
+		pointer-events:none;
+		opacity:0.55;   
+		
+		@include respond-to-few((mobile, phone)) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__Link {
+		position: relative;
+		display: block;
+		padding: .5rem .75rem;
+		line-height: 1.25;
+		color: $primary-color;
+		background-color: $text-color;
+		border: 1px solid $page-secondary-color;
+		border-radius: .30rem;
+
+		&:active {
+			background-color: $primary-color;
+			color: $text-color;
+		}
+	}
+
+	&__Link-Current {
+		background-color: $primary-color;
+		color:	$text-color;
+
+		&:active {
+			background-color: $text-color;
+			color: $primary-color;
+		}
+	}
+
+	@include respond-to-few((mobile, phone)) {
+		width: 100%;
+		text-align: center;
+	}
+}
